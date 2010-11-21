@@ -34,16 +34,12 @@ make %{?_smp_mflags}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p  $RPM_BUILD_ROOT/usr/bin $RPM_BUILD_ROOT/usr/lib $RPM_BUILD_ROOT/usr/lib64 $RPM_BUILD_ROOT/usr/share/man/man8 $RPM_BUILD_ROOT/usr/share/man/man1 $RPM_BUILD_ROOT/usr/share/man/man5
-cp -a bin/apt-* $RPM_BUILD_ROOT/usr/bin
-%ifarch x86_64
-cp -a bin/lib* $RPM_BUILD_ROOT/usr/lib64
-%else
-cp -a bin/lib* $RPM_BUILD_ROOT/usr/lib
-%endif
-cp -a doc/*.8 $RPM_BUILD_ROOT/usr/share/man/man8
-cp -a doc/*.1 $RPM_BUILD_ROOT/usr/share/man/man1
-cp -a doc/*.5 $RPM_BUILD_ROOT/usr/share/man/man5
+mkdir -p  $RPM_BUILD_ROOT%{_bindir} $RPM_BUILD_ROOT%{_libdir} $RPM_BUILD_ROOT%{_mandir}/man8 $RPM_BUILD_ROOT%{_mandir}/man1 $RPM_BUILD_ROOT%{_mandir}/man5
+cp -a bin/apt-* $RPM_BUILD_ROOT%{_bindir}
+cp -a bin/lib* $RPM_BUILD_ROOT%{_libdir}
+cp -a doc/*.8 $RPM_BUILD_ROOT%{_mandir}/man8
+cp -a doc/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
+cp -a doc/*.5 $RPM_BUILD_ROOT%{_mandir}/man5
 
 %clean
 rm -rf $RPM_BUILD_ROOT
