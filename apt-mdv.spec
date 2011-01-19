@@ -18,6 +18,19 @@ Conflicts:	apt
 %description
 Provides tools useful to manage a Debian repository on a Mandriva distribution (apt-ftparchive e.g.)
 
+%package devel
+Summary:        Debian apt tools for Mandriva - devel
+Group:			System/Configuration/Packaging
+
+%description -n %{name}-devel
+Provides tools useful to manage a Debian repository on a Mandriva distribution (apt-ftparchive e.g.)
+
+Devel package
+
+%files -n %{name}-devel
+%defattr (-,root,root)
+%{_includedir}/apt-pkg
+
 %prep
 %setup -q -n apt-%{version}
 
@@ -34,12 +47,13 @@ make %{?_smp_mflags}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-mkdir -p  $RPM_BUILD_ROOT%{_bindir} $RPM_BUILD_ROOT%{_libdir} $RPM_BUILD_ROOT%{_mandir}/man8 $RPM_BUILD_ROOT%{_mandir}/man1 $RPM_BUILD_ROOT%{_mandir}/man5
+mkdir -p  $RPM_BUILD_ROOT%{_bindir} $RPM_BUILD_ROOT%{_libdir} $RPM_BUILD_ROOT%{_mandir}/man8 $RPM_BUILD_ROOT%{_mandir}/man1 $RPM_BUILD_ROOT%{_mandir}/man5 $RPM_BUILD_ROOT%{_includedir}
 cp -a bin/apt-* $RPM_BUILD_ROOT%{_bindir}
 cp -a bin/lib* $RPM_BUILD_ROOT%{_libdir}
 cp -a doc/*.8 $RPM_BUILD_ROOT%{_mandir}/man8
 cp -a doc/*.1 $RPM_BUILD_ROOT%{_mandir}/man1
 cp -a doc/*.5 $RPM_BUILD_ROOT%{_mandir}/man5
+cp -a include/apt-pkg $RPM_BUILD_ROOT%{_includedir}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
