@@ -8,7 +8,7 @@ Version:	0.8.9
 Release:	%mkrel 1
 License:	GPL
 Group:		System/Configuration/Packaging
-Url:		http://ftp.de.debian.org/debian/pool/main/a/apt/
+Url:		https://ftp.de.debian.org/debian/pool/main/a/apt/
 Source:		http://ftp.de.debian.org/debian/pool/main/a/apt/apt_%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(id -u -n)
 Requires:	bzip2, gnupg
