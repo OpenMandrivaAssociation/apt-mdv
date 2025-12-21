@@ -12,6 +12,10 @@ Url:		https://ftp.de.debian.org/debian/pool/main/a/apt/
 Source:		http://ftp.de.debian.org/debian/pool/main/a/apt/apt_%{version}.tar.gz
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root-%(id -u -n)
 Requires:	bzip2, gnupg
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	libtool-base,docbook-style-xsl = %{DBVer},libcurl-devel,dpkg
 Conflicts:	apt 
 
