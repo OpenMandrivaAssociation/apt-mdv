@@ -5,7 +5,7 @@
 Summary:	Debian apt tools for Mandriva
 Name:		apt-mdv
 Version:	0.8.9
-Release:	%mkrel 1
+Release:	2
 License:	GPL
 Group:		System/Configuration/Packaging
 Url:		https://ftp.de.debian.org/debian/pool/main/a/apt/
